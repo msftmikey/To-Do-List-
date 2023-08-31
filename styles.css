@@ -6,6 +6,16 @@ body, ul {
     padding: 0;
 }
 
+/* This sets up the background for the website as a slideshow */
+@keyframes slideshow { 
+    0%, 100% { 
+        background-image: url('https://assets.teenvogue.com/photos/577ec7582fd18be4635019e5/master/w_320%2Cc_limit/2.gif'); 
+    }
+    75% {
+        background-image: url('https://i.chzbgr.com/full/9487921664/h34F11B2B/animal-white-fluffy-samoyed-dog-eating-long-noodle-spaghetti');
+    }
+}
+
 /* Center content vertically and horizontally & adds a background image */
 .container {
     display: flex;
@@ -19,14 +29,6 @@ body, ul {
     animation: slideshow 15s infinite; 
 }
 
-@keyframes slideshow { 
-    0%, 100% { 
-        background-image: url('https://assets.teenvogue.com/photos/577ec7582fd18be4635019e5/master/w_320%2Cc_limit/2.gif'); 
-    }
-    75% {
-        background-image: url('https://i.chzbgr.com/full/9487921664/h34F11B2B/animal-white-fluffy-samoyed-dog-eating-long-noodle-spaghetti');
-    }
-}
 
 /* Basic form styling */
 form {

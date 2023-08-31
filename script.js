@@ -17,11 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const taskItem = document.createElement("li");
-        taskItem.innerHTML = `
-            <span>${taskName}</span>
-            <span>Due: ${dueDate}</span>
-            <button class="delete-button">Delete</button>
-        `;
+        taskItem.innerHTML = `<span>${taskName} --- Due: ${dueDate} </span>    
+        <button class="delete-button">Delete</button>`;
 
         taskList.appendChild(taskItem);
         taskInput.value = "";
@@ -35,3 +32,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+

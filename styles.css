@@ -1,17 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+ 
 /* Reset default margin and padding */
 body, ul {
     margin: 0;
     padding: 0;
 }
 
-/* Center content vertically and horizontally */
+/* Center content vertically and horizontally & adds a background image */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f5f5f5;
+   /* background-image: url('https://assets.teenvogue.com/photos/577ec7582fd18be4635019e5/master/w_320%2Cc_limit/2.gif'), url('https://i.chzbgr.com/full/9487921664/h34F11B2B/animal-white-fluffy-samoyed-dog-eating-long-noodle-spaghetti'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: slideshow 15s infinite; 
+}
+
+@keyframes slideshow { 
+    0%, 100% { 
+        background-image: url('https://assets.teenvogue.com/photos/577ec7582fd18be4635019e5/master/w_320%2Cc_limit/2.gif'); 
+    }
+    75% {
+        background-image: url('https://i.chzbgr.com/full/9487921664/h34F11B2B/animal-white-fluffy-samoyed-dog-eating-long-noodle-spaghetti');
+    }
 }
 
 /* Basic form styling */
@@ -25,6 +39,12 @@ form {
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
+span { 
+font-family: 'Raleway'; 
+}
+
 
 label, input, button {
     margin: 5px;

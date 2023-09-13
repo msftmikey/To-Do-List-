@@ -46,7 +46,7 @@ function ToDoWebsite() {
             taskInput.value = "";
             dueDateInput.value = "";
         });
-    
+
         taskList.addEventListener("click", function (event) {
             if (event.target.classList.contains("delete-button")) {
                 const taskItem = event.target.closest("li");

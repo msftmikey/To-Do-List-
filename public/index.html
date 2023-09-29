@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>To-Do List</title>
 </head>
 <body>
-    <div class="container">
-        <h1>To-Do List</h1>
-        <form id="task-form">
-            <label for="task">Task:</label>
-            <input type="text" id="task" name="task" required>
-            <label for="due-date">Due Date:</label>
-            <input type="date" id="due-date" name="due-date">
-            <button type="submit">Add Task</button>
-        </form>
-        <ul id="task-list">
-            <!-- Tasks will be added here dynamically using JavaScript -->
-        </ul>
-    </div>
-    <script src="App.js"></script>
+    <div id="root"></div>
+    
+    <!-- Include React scripts -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Include Babel for JSX transformation (development only) -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Your React code -->
+    <script type="text/babel" src="App.js"></script>
 </body>
 </html>

@@ -1,45 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
- 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
 /* Reset default margin and padding */
 body, ul {
     margin: 0;
     padding: 0;
 }
 
-/* This sets up the background for the website as a slideshow 
-@keyframes slideshow { 
-    0%, 100% { 
-        background-image: url('https://i.makeagif.com/media/12-30-2017/hbVh06.gif'); 
-    }
-    75% {
-        background-image: url('https://i.chzbgr.com/full/9487921664/h34F11B2B/animal-white-fluffy-samoyed-dog-eating-long-noodle-spaghetti');
-    }
-}
-/*
-/* Center content vertically and horizontally & adds a background image */
+/* Styles for main tasklist container */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: 100vh;
+    width: 100vh;
+}
+
+/* Style for the tasklist container */
+.content {
+    background-color: #6a6a6a; 
     justify-content: center;
-    min-height: 100vh;
-    background-image: url('https://i.makeagif.com/media/12-30-2017/hbVh06.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* animation: slideshow 15s infinite; */
+    display: flex;
+    scrollbar-width: none;
+    height: 100vh;
+    width: 80vw;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
-/* Basic form styling */
+/* Basic form styling for sidebar */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #4c4c4c;
+    box-shadow: 1.5px 0 0 0 #454545;
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1em;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .error {
@@ -72,23 +82,45 @@ form {
   }
 
 span { 
-font-family: 'Raleway'; 
+font-family: 'Manrope'; 
 font-weight: bold;
 }
 
-
+/* Styling for buttons */
 label, input, button {
     margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
 }
 
 button {
     background-color: #007bff;
     color: #ffffff;
-    border: none;
     padding: 8px 16px;
     border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+}
+
+#delete {
+    background-color: #ffffff;
+    color: #8b8b8b;
+    height: 100%;
+}
+
+#open_in_new {
+    background-color: #ffffff;
+    color: #8b8b8b;
+    height: 100%;
+}
+
+#delete:hover {
+    color: #ffffff;
+    background-color: #b30000;
+}
+
+#open_in_new:hover {
+    color: #ffffff;
+    background-color: #009b10;
 }
 
 button:hover {
@@ -101,19 +133,60 @@ h1 {
 
 /* Task list styling */
 ul {
+    justify-content: left;
+    display: grid;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    grid-template-columns: repeat(2, minmax(37vw, 1fr));
+    grid-gap: 20px;
     list-style: none;
     padding: 0;
 }
 
 li {
-    background-color: #ffffff;
-    margin: 8px 0;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+
+    background-color: #ffffff;
+    padding-inline: 15px;
+    border-radius: 3px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: left;
+}
+
+.list_buttons {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    
+}
+
+/* Basic form styling for inputs */
+#task {
+    color: #f2f2f2;
+    background-color: #252525;
+    box-shadow: none;
+    border: none;
+    border-radius: 3px;
+    height: 25px;
+    width: 95%;
+}
+
+#task:focus {
+    outline:none !important ;
+}
+
+input[type="date"] {
+    color: #f2f2f2;
+    background-color: #252525;
+    box-shadow: none;
+    border: none;
+    border-radius: 3px;
+    height: 25px;
+    width: 95%;
 }
 
 /* Responsive styles */

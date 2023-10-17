@@ -19,7 +19,9 @@ export const database = firebaseApp.database();
 
 function formatDate(dateString) {
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateString).toLocaleDateString('en-US', options);
+  const utcDate = new Date(dateString + 'T00:00:00Z'); // Assuming dates are in UTC
+  const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000); // Adjust for timezone offset
+  return localDate.toLocaleDateString('en-US', options);
 }
 
 function App() {
@@ -94,7 +96,7 @@ function App() {
     <div className="container">
       <div className='sidebar'>
       <form onSubmit={handleAddTask}>
-          <label htmlFor="task">Task:</label>
+          <div className='todo'>TO-DO</div>
           <input
             type="text"
             id="task"
@@ -123,10 +125,8 @@ function App() {
             {tasks.map((task) => (
               <li key={task.id}>
                 <p><b>{task.name}</b><br></br> Due {formatDate(task.dueDate)}</p>
-                <div class='list_buttons'>
-                  <button id='open_in_new' class="material-symbols-outlined" onClick={() => handleTaskOpen(task.name, task.dueDate)}>open_in_new</button>
-                  <button id='delete' class="material-symbols-outlined" onClick={() => handleTaskDelete(task.id)}>delete</button>
-                </div>
+                <div class='open_button'><button id='open_in_new' class="material-symbols-outlined" onClick={() => handleTaskOpen(task.name, task.dueDate)}>open_in_new</button></div>
+                <div class='delete_button'><button id='delete' class="material-symbols-outlined" onClick={() => handleTaskDelete(task.id)}>delete</button></div>
               </li>
             ))}
           </ul>

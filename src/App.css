@@ -15,7 +15,8 @@ body, ul {
 
 /* Style for the tasklist container */
 .content {
-    background-color: #6a6a6a; 
+    background-image: linear-gradient(135.97deg, #685d6e 1.84%, #6d6d6d 102.67%);
+    box-shadow: 0 0 10px 0 #373737;
     justify-content: center;
     display: flex;
     scrollbar-width: none;
@@ -31,14 +32,12 @@ body, ul {
     box-sizing: border-box;
 }
 
-
 /* Basic form styling for sidebar */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #4c4c4c;
-    box-shadow: 1.5px 0 0 0 #454545;
+    background-image: linear-gradient(180deg, #49414d 1.84%, #594c58 102.67%);
     width: 20vw;
     height: 100vh;
     position: fixed;
@@ -50,6 +49,21 @@ form {
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+/* Styling for todo logo */
+.todo {
+    font-family: 'Manrope';
+    font-size: 2em;
+    font-weight: 900;
+    background-color: #AE67FA;
+    background-image: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    background-size: 100%;
+    
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
 }
 
 .error {
@@ -90,7 +104,7 @@ font-weight: bold;
 label, input, button {
     margin: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
     border: none;
 }
 
@@ -105,12 +119,15 @@ button {
     background-color: #ffffff;
     color: #8b8b8b;
     height: 100%;
+    border-radius: 0 10px 10px 0;
 }
 
 #open_in_new {
     background-color: #ffffff;
     color: #8b8b8b;
     height: 100%;
+    border-radius: 0;
+    
 }
 
 #delete:hover {
@@ -118,9 +135,25 @@ button {
     background-color: #b30000;
 }
 
+.delete_button {
+    position: absolute;
+    margin-bottom: 2%;
+    height: 100%;
+    right: -1%;
+    display: flex;
+}
+
 #open_in_new:hover {
     color: #ffffff;
     background-color: #009b10;
+}
+
+.open_button {
+    position: absolute;
+    margin-bottom: 2%;
+    height: 100%;
+    right: 10%;
+    display: flex;
 }
 
 button:hover {
@@ -131,8 +164,9 @@ h1 {
     color: darkblue;
 }
 
-/* Task list styling */
+/* Task list element styling */
 ul {
+    height: 10vh;
     justify-content: left;
     display: grid;
     margin-top: 2vh;
@@ -150,25 +184,23 @@ li {
     position: relative;
 
     background-color: #ffffff;
-    padding-inline: 15px;
-    border-radius: 3px;
+    padding-left: 15px;
+    border-radius: 10px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: left;
+
+    transition: transform 0.1s ease;
 }
 
-.list_buttons {
-    position: absolute;
-    right: 15px;
-    display: flex;
-    
+li:hover {
+    transform: scale(1.01);
 }
 
 /* Basic form styling for inputs */
 #task {
     color: #f2f2f2;
     background-color: #252525;
-    box-shadow: none;
     border: none;
     border-radius: 3px;
     height: 25px;
@@ -182,7 +214,6 @@ li {
 input[type="date"] {
     color: #f2f2f2;
     background-color: #252525;
-    box-shadow: none;
     border: none;
     border-radius: 3px;
     height: 25px;

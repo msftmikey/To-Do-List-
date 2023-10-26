@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Confetti from 'react-dom-confetti';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 import './App.css';
@@ -30,9 +31,16 @@ function App() {
   const [newTask, setNewTask] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [error, setError] = useState('');
+  const [isConfettiActive, setIsConfettiActive] = useState(false);
 
   const handleAddTask = (e) => {
     e.preventDefault();
+
+    setIsConfettiActive(true);
+
+    setTimeout(() => {
+      setIsConfettiActive(false);
+    }, 3000);
 
     if (!dueDate) {
       setError('Please enter a due date.');
@@ -117,6 +125,7 @@ function App() {
             onChange={(e) => setDueDate(e.target.value)}
           />
           <button type="submit">Add Task</button>
+          <Confetti active={isConfettiActive} config={{ angle: 90, spread: 360 }} />
           {error && <p className="error">{error}</p>}
         </form>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 import './App.css';
@@ -95,7 +96,7 @@ function App() {
   return (
     <div className="container">
       <div className='sidebar'>
-      <form onSubmit={handleAddTask}>
+        <form onSubmit={handleAddTask}>
           <div className='todo'>TO-DO</div>
           <input
             type="text"
@@ -121,17 +122,22 @@ function App() {
       </div>
       
       <div className='content'>
-        <ul id="task-list">
-            {tasks.map((task) => (
-              <li key={task.id}>
+        <TransitionGroup component="ul" id="task-list">
+          {tasks.map((task) => (
+            <CSSTransition
+            key={task.id}
+            classNames="fade"
+            timeout={300}
+            >
+              <li>
                 <p><b>{task.name}</b><br></br> Due {formatDate(task.dueDate)}</p>
                 <div class='open_button'><button id='open_in_new' class="material-symbols-outlined" onClick={() => handleTaskOpen(task.name, task.dueDate)}>open_in_new</button></div>
                 <div class='delete_button'><button id='delete' class="material-symbols-outlined" onClick={() => handleTaskDelete(task.id)}>delete</button></div>
               </li>
-            ))}
-          </ul>
+            </CSSTransition>    
+          ))}
+        </TransitionGroup>
       </div>
-
     </div>
   );
 }

@@ -20,11 +20,16 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 export const database = firebaseApp.database();
 
 function formatDate(dateString) {
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const utcDate = new Date(dateString + 'T00:00:00Z'); // Assuming dates are in UTC
-  const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000); // Adjust for timezone offset
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short' };
+  const localDate = new Date(dateString); // Parse the input date string
+
+  // Adjust for timezone offset if needed
+  // const utcDate = new Date(dateString + 'Z'); // If the input date is in UTC
+  // const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000);
+
   return localDate.toLocaleDateString('en-US', options);
 }
+
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -43,11 +48,11 @@ function App() {
     }, 3000);
 
     if (!dueDate) {
-      setError('Please enter a due date.');
+      setError('Please a due date.');
       return;
     }
 
-    const taskObject = { name: newTask, dueDate };
+    const taskObject = { name: newTask, dueDate: new Date(dueDate).toISOString() };
     setTasks([...tasks, taskObject]);
 
     firebase.database().ref('tasks').push(taskObject);
@@ -105,7 +110,7 @@ function App() {
     <div className="container">
       <div className='sidebar'>
         <form onSubmit={handleAddTask}>
-          <div className='todo'>TO-DO</div>
+          <div className='todo'>To-Do</div>
           <input
             type="text"
             id="task"
@@ -118,7 +123,7 @@ function App() {
           />
           <label htmlFor="due-date"></label>
           <input
-            type="date"
+            type="datetime-local"
             id="due-date"
             name="due-date"
             value={dueDate}
@@ -140,7 +145,7 @@ function App() {
             >
               <li>
                 <p><b>{task.name}</b><br></br> Due {formatDate(task.dueDate)}</p>
-                <div class='open_button'><button id='open_in_new' class="material-symbols-outlined" onClick={() => handleTaskOpen(task.name, task.dueDate)}>open_in_new</button></div>
+                <div class='open_button'><button id='open_in_new' class="material-symbols-outlined" onClick={() => handleTaskOpen(task.name, formatDate(task.dueDate))}>open_in_new</button></div>
                 <div class='delete_button'><button id='delete' class="material-symbols-outlined" onClick={() => handleTaskDelete(task.id)}>delete</button></div>
               </li>
             </CSSTransition>    

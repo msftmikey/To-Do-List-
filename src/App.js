@@ -20,6 +20,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 export const database = firebaseApp.database();
 
 function formatDate(dateString) {
+  // This adds hour, minute, and timezone
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short' };
   const localDate = new Date(dateString); // Parse the input date string
 

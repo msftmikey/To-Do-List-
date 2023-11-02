@@ -104,8 +104,8 @@ function App() {
   return (
     <div className="container">
       <div className='sidebar'>
+        <div className='todo'>TO-DO</div>
         <form onSubmit={handleAddTask}>
-          <div className='todo'>TO-DO</div>
           <input
             type="text"
             id="task"
@@ -116,7 +116,6 @@ function App() {
             onChange={(e) => setNewTask(e.target.value)}
             required
           />
-          <label htmlFor="due-date"></label>
           <input
             type="date"
             id="due-date"
@@ -124,10 +123,14 @@ function App() {
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
           />
-          <button type="submit">Add Task</button>
+          <button class="add_task" type="submit">Add Task</button>
           <Confetti active={isConfettiActive} config={{ angle: 90, spread: 360 }} />
           {error && <p className="error">{error}</p>}
         </form>
+        <div class="settings_button">
+          <i id="settings" class="material-symbols-outlined">settings</i>
+          <span class="settings_text">Settings</span>
+        </div>
       </div>
       
       <div className='content'>

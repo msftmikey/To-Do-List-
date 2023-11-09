@@ -106,8 +106,19 @@ function App() {
       });
   };
 
+  const [isSettingsOpen, setSettingsOpen] = useState(false);
+    
+  const openSettings = () => {
+    setSettingsOpen(true);
+  };
+  
+  const closeSettings = () => {
+    setSettingsOpen(false);
+  };
+
   return (
     <div className="container">
+
       <div className='sidebar'>
         <div className='todo'>TO-DO</div>
         <form onSubmit={handleAddTask}>
@@ -128,11 +139,11 @@ function App() {
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
           />
-          <button class="add_task" type="submit">Add Task</button>
+          <button class="add_task" type="submit"><span>Add Task</span></button>
           <Confetti active={isConfettiActive} config={{ angle: 90, spread: 360 }} />
           {error && <p className="error">{error}</p>}
         </form>
-        <div class="settings_button">
+        <div class="settings_button" onClick={openSettings}>
           <i id="settings" class="material-symbols-outlined">settings</i>
           <span class="settings_text">Settings</span>
         </div>
@@ -155,6 +166,18 @@ function App() {
           ))}
         </TransitionGroup>
       </div>
+
+      {isSettingsOpen && (
+        <div className='settings-overlay'>
+          <div className='settings-content'>
+            <span className='close-button' onClick={closeSettings}>
+              &times;
+            </span>
+            <h2>Settings</h2>
+          </div>
+        </div>
+      )}
+      
     </div>
   );
 }

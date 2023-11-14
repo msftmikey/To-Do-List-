@@ -174,6 +174,22 @@ function App() {
               &times;
             </span>
             <h2>Settings</h2>
+
+            <div className='setting-item'>
+              <span className='setting-name'>Setting 1</span>
+              <label className='toggle'>
+                <input type='checkbox' />
+                <span className='slider'></span>
+              </label>
+            </div>
+
+            <div className='setting-item'>
+              <span className='setting-name'>Setting 2</span>
+              <label className='toggle'>
+                <input type='checkbox' />
+                <span className='slider'></span>
+              </label>
+            </div>
           </div>
         </div>
       )}

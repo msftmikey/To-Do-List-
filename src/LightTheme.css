@@ -178,7 +178,6 @@ button {
 }
 
 .light .settings_text {
-    margin-top: 3px;
     margin-left: 7px;
     vertical-align: middle;
     color: black;
@@ -343,9 +342,10 @@ input[type="datetime-local"] {
     margin-bottom: 15px;
   }
   
-  .setting-name {
+  .light .setting-name {
     /* Style for the setting name on the left */
     flex: 1;
+    color: black
   }
   
   .toggle {

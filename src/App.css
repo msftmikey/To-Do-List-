@@ -333,7 +333,7 @@ input[type="datetime-local"] {
   h3 {
     /* Style for the title */
     margin-top: 0px;
-    color: rgb(171, 171, 171);
+    color: greenyellow
   }
   
   .setting-item {
@@ -347,6 +347,7 @@ input[type="datetime-local"] {
   .setting-name {
     /* Style for the setting name on the left */
     flex: 1;
+    color:greenyellow
   }
   
   .toggle {

@@ -37,15 +37,18 @@ function App() {
   const [dueDate, setDueDate] = useState('');
   const [error, setError] = useState('');
   const [isConfettiActive, setIsConfettiActive] = useState(false);
+  const [isConfettiEnabled, setConfettiEnabled] = useState(true);
 
   const handleAddTask = (e) => {
     e.preventDefault();
 
-    setIsConfettiActive(true);
+    if (isConfettiEnabled) {
+      setIsConfettiActive(true);
 
-    setTimeout(() => {
-      setIsConfettiActive(false);
-    }, 3000);
+      setTimeout(() => {
+        setIsConfettiActive(false);
+      }, 3000);
+    }
 
     if (!dueDate) {
       setError('Please enter a due date.');
@@ -59,6 +62,10 @@ function App() {
     setNewTask('');
     setDueDate('');
     setError('');
+  };
+
+  const toggleConfettiSetting = () => {
+    setConfettiEnabled(!isConfettiEnabled);
   };
 
   const handleTaskOpen = (taskName, taskDueDate) => {
@@ -170,26 +177,28 @@ function App() {
       {isSettingsOpen && (
         <div className='settings-overlay'>
           <div className='settings-content'>
-            <span className='close-button' onClick={closeSettings}>
-              &times;
-            </span>
-            <h2>Settings</h2>
-
+            <span className='close-button'><button id='close' class="material-symbols-outlined" onClick={closeSettings}>close</button></span>
+            <h3>Settings</h3>
+            <hr className='separator'/>
             <div className='setting-item'>
-              <span className='setting-name'>Setting 1</span>
+              <span className='setting-name'>Confetti <br></br> Used to disable and enable confetti effects</span>
               <label className='toggle'>
-                <input type='checkbox' />
+                <input
+                  type='checkbox'
+                  checked={isConfettiEnabled}
+                  onChange={toggleConfettiSetting}/>
                 <span className='slider'></span>
               </label>
             </div>
-
+            <hr className='separator'/>
             <div className='setting-item'>
-              <span className='setting-name'>Setting 2</span>
+              <span className='setting-name'>Clear Tasks <br></br> Clear all tasks that are visible on the tasklist</span>
               <label className='toggle'>
-                <input type='checkbox' />
+                <input type='checkbox'/>
                 <span className='slider'></span>
               </label>
             </div>
+            <hr className='separator'/>
           </div>
         </div>
       )}

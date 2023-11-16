@@ -4,6 +4,7 @@ import Confetti from 'react-dom-confetti';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 import './App.css';
+import './LightTheme.css';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAYpvMKZiXfi3CdTPUKHMwM9mVHNCJnX44",
@@ -39,6 +40,7 @@ function App() {
   const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [isConfettiActive, setIsConfettiActive] = useState(false);
   const [isConfettiEnabled, setConfettiEnabled] = useState(true);
+  const [selectedTheme, setSelectedTheme] = useState('default'); // 'default' or 'dark'
 
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -128,6 +130,10 @@ function App() {
       });
   };
 
+  const applyTheme = (theme) => {
+    setSelectedTheme(theme);
+  };
+
   const openSettings = () => {
     setSettingsOpen(true);
   };
@@ -137,7 +143,7 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className={`container ${selectedTheme}`}>
       <div className='sidebar'>
         <div className='todo'>TO-DO</div>
         <form onSubmit={handleAddTask}>
@@ -205,6 +211,10 @@ function App() {
             <hr className='separator'/>
             <div className='setting-item'>
               <span className='setting-name'>Theme <br></br> Change the theme of your tasklist</span>
+              <select value={selectedTheme} onChange={(e) => applyTheme(e.target.value)}>
+                <option value='default'>Default</option>
+                <option value='light'>Light</option>
+              </select>
             </div>
             <hr className='separator'/>
             <div className='setting-item'>

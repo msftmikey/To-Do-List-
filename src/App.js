@@ -36,6 +36,7 @@ function App() {
   const [newTask, setNewTask] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [error, setError] = useState('');
+  const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [isConfettiActive, setIsConfettiActive] = useState(false);
   const [isConfettiEnabled, setConfettiEnabled] = useState(true);
 
@@ -112,9 +113,21 @@ function App() {
         console.error("Error removing task: ", error);
       });
   };
+  
+  const handleClearTasks = () => {
+    // Reference to the 'tasks' node in Firebase Realtime Database
+    const tasksRef = firebase.database().ref('tasks');
+    // Remove all tasks from Firebase
+    tasksRef.remove()
+      .then(() => {
+        // Update local state after successfully clearing tasks from the database
+        setTasks([]);
+      })
+      .catch(error => {
+        console.error("Error clearing tasks: ", error);
+      });
+  };
 
-  const [isSettingsOpen, setSettingsOpen] = useState(false);
-    
   const openSettings = () => {
     setSettingsOpen(true);
   };
@@ -125,7 +138,6 @@ function App() {
 
   return (
     <div className="container">
-
       <div className='sidebar'>
         <div className='todo'>TO-DO</div>
         <form onSubmit={handleAddTask}>
@@ -192,11 +204,12 @@ function App() {
             </div>
             <hr className='separator'/>
             <div className='setting-item'>
+              <span className='setting-name'>Theme <br></br> Change the theme of your tasklist</span>
+            </div>
+            <hr className='separator'/>
+            <div className='setting-item'>
               <span className='setting-name'>Clear Tasks <br></br> Clear all tasks that are visible on the tasklist</span>
-              <label className='toggle'>
-                <input type='checkbox'/>
-                <span className='slider'></span>
-              </label>
+              <button className='clear-task' onClick={handleClearTasks}>Clear Tasks</button>
             </div>
             <hr className='separator'/>
           </div>

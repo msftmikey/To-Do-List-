@@ -186,26 +186,26 @@ li:hover {
 .fade-enter {
     opacity: 0;
     transform: scale(0.95);
-  }
+}
   
-  .fade-enter-active {
+.fade-enter-active {
     opacity: 1;
     transform: scale(1);
     transition: opacity 300ms, transform 300ms;
-  }
+}
   
-  .fade-exit {
+.fade-exit {
     opacity: 1;
     transform: scale(1);
-  }
+}
   
   .fade-exit-active {
     opacity: 0;
     transform: scale(0.95);
     transition: opacity 300ms, transform 50ms;
-  }
+}
   
-  .settings-overlay {
+.settings-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -215,50 +215,50 @@ li:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
   
-  .close-button {
+.close-button {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 20px;
     cursor: pointer;
-  }
+}
 
-  #close {
+#close {
     color: rgb(171, 171, 171);
     background-color: rgba(0, 0, 0, 0);
-  }
+}
 
-  #close:hover {
+#close:hover {
     color: rgb(206, 206, 206);
     transform: scale(1.01)
-  }
+}
   
-  .setting-item {
+.setting-item {
     /* Style for each setting item */
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-  }
+}
   
-  .toggle {
+.toggle {
     /* Style for the toggle switch container */
     position: relative;
     display: inline-block;
     width: 50px;
     height: 24px;
-  }
+}
   
-  .toggle input {
+.toggle input {
     /* Style for the actual checkbox input */
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
   
-  .slider {
+.slider {
     /* Style for the slider */
     position: absolute;
     cursor: pointer;
@@ -270,9 +270,9 @@ li:hover {
     -webkit-transition: .2s;
     transition: .2s;
     border-radius: 24px;
-  }
+}
   
-  .slider:before {
+.slider:before {
     /* Style for the slider's handle */
     position: absolute;
     content: "";
@@ -284,30 +284,30 @@ li:hover {
     -webkit-transition: .2s;
     transition: .2s;
     border-radius: 50%;
-  }
+}
   
-  input:checked + .slider {
+input:checked + .slider {
     background-color: #009b10;
-  }
+}
   
-  input:focus + .slider {
+input:focus + .slider {
     box-shadow: 0 0 1px #009b10;
-  }
+}
   
-  input:checked + .slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
+}
 
-  .separator {
+.separator {
     width: 100%;
     height: 1px;
     background-color: #676767; /* Adjust the color as needed */
     border: 0;
     margin: 10px 0; /* Adjust the margin as needed for spacing */
     box-shadow: none;
-  }
+}
 
 /* Responsive styles */
 @media (max-width: 768px) {

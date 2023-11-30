@@ -119,3 +119,15 @@
     color: white;
     cursor: pointer;
 }
+
+.default .clear-task {
+    color: white;
+    background: none;
+    border: 1px solid red;
+}
+
+.default .clear-task:hover {
+    color: white;
+    background: red;
+    border: 1px solid red;
+}

@@ -118,3 +118,15 @@
     color: black;
     cursor: pointer;
 }
+
+.light .clear-task {
+    color: black;
+    background: none;
+    border: 1px solid red;
+}
+
+.light .clear-task:hover {
+    color: white;
+    background: red;
+    border: 1px solid red;
+}

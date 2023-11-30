@@ -13,44 +13,6 @@ body, ul {
     width: 100vh;
 }
 
-/* Style for the tasklist container */
-.content {
-    background-image: linear-gradient(135.97deg, #685d6e 1.84%, #6d6d6d 102.67%);
-    box-shadow: 0 0 10px 0 #373737;
-    justify-content: center;
-    display: flex;
-    scrollbar-width: none;
-    height: 100vh;
-    width: 80vw;
-    overflow: auto;
-    position: fixed;
-    right: 0;
-
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-     box-sizing: border-box;
-}
-
-/* Basic form styling for sidebar */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: linear-gradient(180deg, #49414d 1.84%, #594c58 102.67%);
-    width: 20vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 1em;
-
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 /* Styling for todo logo */
 .todo {
     font-family: 'Manrope';
@@ -68,13 +30,13 @@ body, ul {
 
 .error {
     color: red;
-  }
+}
   
-  .tooltip-container {
+.tooltip-container {
     position: relative;
-  }
+}
   
-  .error-tooltip {
+.error-tooltip {
     visibility: hidden;
     opacity: 0;
     position: absolute;
@@ -86,7 +48,7 @@ body, ul {
     left: 0;
     transform: translateX(50%);
     transition: opacity 0.2s, transform 0.2s;
-  }
+}
   
   .tooltip-container:hover .error-tooltip {
     visibility: visible;
@@ -160,32 +122,9 @@ button {
     justify-content: center !important;
 }
 
-.settings_button {
-    display: flex;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    border: none;
-    background-color: transparent;
-    color: #9a9a9a;
-    padding: 8px 16px;
-    border-radius: 4px;
-}
-
 #settings {
     font-size: 25px;
     margin-top: 2px;
-}
-
-.settings_text {
-    margin-top: 3px;
-    margin-left: 7px;
-    vertical-align: middle;
-}
-
-.settings_button:hover {
-    color: #ffffff;
-    background-color: #979797;
 }
 
 .add_task:hover {
@@ -227,33 +166,8 @@ li:hover {
     transform: scale(1.01);
 }
 
-/* Basic form styling for inputs */
-#task {
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    color: #f2f2f2;
-    background-color: #252525;
-    border: none;
-    border-radius: 3px;
-    height: 25px;
-    width: 95%;
-}
-
 #task:focus {
     outline:none !important ;
-}
-
-input[type="datetime-local"] {
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    color: #f2f2f2;
-    background-color: #252525;
-    border: none;
-    border-radius: 3px;
-    height: 25px;
-    width: 95%;
 }
 
 .add_task {
@@ -303,15 +217,6 @@ input[type="datetime-local"] {
     align-items: center;
   }
   
-  .settings-content {
-    background: #49414d;
-    height: 80vh;
-    width: 65vw;
-    padding: 20px;
-    border-radius: 5px;
-    position: relative;
-  }
-  
   .close-button {
     position: absolute;
     top: 10px;
@@ -329,12 +234,6 @@ input[type="datetime-local"] {
     color: rgb(206, 206, 206);
     transform: scale(1.01)
   }
-
-  h3 {
-    /* Style for the title */
-    margin-top: 0px;
-    color: greenyellow
-  }
   
   .setting-item {
     /* Style for each setting item */
@@ -342,12 +241,6 @@ input[type="datetime-local"] {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-  }
-  
-  .setting-name {
-    /* Style for the setting name on the left */
-    flex: 1;
-    color:greenyellow
   }
   
   .toggle {
@@ -409,8 +302,9 @@ input[type="datetime-local"] {
 
   .separator {
     width: 100%;
-    height: 0.75px;
-    color: #676767; /* Adjust the color as needed */
+    height: 1px;
+    background-color: #676767; /* Adjust the color as needed */
+    border: 0;
     margin: 10px 0; /* Adjust the margin as needed for spacing */
     box-shadow: none;
   }

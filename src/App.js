@@ -4,6 +4,7 @@ import Confetti from 'react-dom-confetti';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 import './App.css';
+import './DefaultTheme.css';
 import './LightTheme.css';
 
 const firebaseConfig = {
@@ -211,10 +212,12 @@ function App() {
             <hr className='separator'/>
             <div className='setting-item'>
               <span className='setting-name'>Theme <br></br> Change the theme of your tasklist</span>
+              <div className='custom-select'>
               <select value={selectedTheme} onChange={(e) => applyTheme(e.target.value)}>
                 <option value='default'>Default</option>
                 <option value='light'>Light</option>
               </select>
+              </div>
             </div>
             <hr className='separator'/>
             <div className='setting-item'>

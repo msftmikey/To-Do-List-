@@ -1,7 +1,7 @@
 /* Style for the tasklist container */
-.light .content {
-    background-image: linear-gradient(135.97deg, #efefef 1.84%, #efefef 102.67%);
-    box-shadow: 0 0 1px 0 #373737;
+.default .content {
+    background-image: linear-gradient(135.97deg, #564c5b 1.84%, #564c5b 102.67%);
+    box-shadow: 0 0 10px 0 #373737;
     justify-content: center;
     display: flex;
     scrollbar-width: none;
@@ -14,15 +14,15 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
-    box-sizing: border-box;
+     box-sizing: border-box;
 }
 
 /* Basic form styling for sidebar */
-.light .sidebar {
+.default .sidebar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: linear-gradient(180deg, #f4f4f4 1.84%, #f4f4f4 102.67%);
+    background-image: linear-gradient(180deg, #49414d 1.84%, #594c58 102.67%);
     width: 20vw;
     height: 100vh;
     position: fixed;
@@ -36,56 +36,56 @@
     box-sizing: border-box;
 }
 
-.light .settings_button {
+.default .settings_button {
     display: flex;
     margin: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
     border: none;
     background-color: transparent;
-    color: #5E6267;
+    color: #9a9a9a;
     padding: 8px 16px;
     border-radius: 4px;
 }
 
-.light .settings_text {
+.default .settings_text {
+    margin-top: 3px;
     margin-left: 7px;
     vertical-align: middle;
-    color: #5E6267;
 }
 
-.light .settings_button:hover {
-    color: #5E6267;
-    background-color: #dadada;
+.default .settings_button:hover {
+    color: #ffffff;
+    background-color: #5E6267;
 }
 
 /* Basic form styling for inputs */
-.light #task {
+.default #task {
     margin: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    color: black;
-    background-color: #dadada;
+    color: #f2f2f2;
+    background-color: #252525;
     border: none;
     border-radius: 3px;
     height: 25px;
     width: 95%;
 }
 
-.light input[type="datetime-local"] {
+.default input[type="datetime-local"] {
     margin: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    color: black;
-    background-color: #dadada;
+    color: #f2f2f2;
+    background-color: #252525;
     border: none;
     border-radius: 3px;
     height: 25px;
     width: 95%;
 }
 
-.light .settings-content {
-    background: #f4f4f4;
+.default .settings-content {
+    background: #49414d;
     height: 80vh;
     width: 65vw;
     padding: 20px;
@@ -93,28 +93,29 @@
     position: relative;
 }
 
-.light h3 { 
-    margin: 0;
-    color: #5E6267;
+.default h3 {
+    /* Style for the title */
+    margin-top: 0px;
+    color: white;
 }
   
-.light .setting-name {
+.default .setting-name {
     /* Style for the setting name on the left */
     flex: 1;
-    color: #5E6267
+    color: white;
 }
 
-.light .custom-select {
+.default .custom-select {
     min-width: 110px;
 }
   
-.light select {
+.default select {
     appearance: none;
     -webkit-appearance: none;
     width: 100%;
     padding: 0.5em 2em 0.5em .5em;
-    background-color: white;
-    border: 1px solid #5E6267;
-    color: black;
+    background-color: #252525;
+    border: none;
+    color: white;
     cursor: pointer;
 }
